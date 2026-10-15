@@ -147,25 +147,37 @@
     <!-- Skript pro načtení společné hlavičky a úpravu aktivního stavu menu -->
     <script>
         fetch('hlavicka.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('spolecna-hlavicka').outerHTML = data;
-                
-                let currentPage = window.location.pathname.split('/').pop();
-                if (currentPage === '') currentPage = 'index.html';
+    .then(response => response.text())
+    .then(data => {
+        // Vložení hlavičky
+        document.getElementById('spolecna-hlavicka').outerHTML = data;
+        
+        let currentPage = window.location.pathname.split('/').pop();
+        if (currentPage === '') currentPage = 'index.html';
 
-                setTimeout(() => {
-                    const navLinks = document.querySelectorAll('header nav a');
-                    
-                    navLinks.forEach(link => {
-                        if (link.getAttribute('href') === currentPage) {
-                            link.classList.remove('text-slate-500');
-                            link.classList.add('text-industrial-blue', 'font-extrabold', 'border-b-2', 'border-industrial-blue');
-                        }
-                    });
-                }, 50);
-            })
-            .catch(error => console.error('Chyba při načítání hlavičky:', error));
+        setTimeout(() => {
+            const navLinks = document.querySelectorAll('header nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.remove('text-slate-500');
+                    link.classList.add('text-industrial-blue', 'font-extrabold', 'border-b-2', 'border-industrial-blue');
+                }
+            });
+
+            // --- KÓD PRO ROZBALENÍ MOBILNÍHO MENU ---
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            // ----------------------------------------
+            
+        }, 50);
+    })
+    .catch(error => console.error('Chyba při načítání hlavičky:', error));
     </script>
 </body>
 </html>
