@@ -7,18 +7,27 @@
                     <img src="image/image uvod/logo.webp" alt="Logo naší firmy" class="h-14 w-auto">
                 </a>
             </div>
-            <!-- Navigace -->
+            <!-- Navigace (skrytá na mobilu) -->
             <nav class="hidden md:flex space-x-8 items-center">
                 <a href="index.html" class="text-slate-500 hover:text-industrial-accent px-3 py-2 text-sm font-semibold transition-colors">Úvod</a>
                 <a href="sluzby.html" class="text-slate-500 hover:text-industrial-accent px-3 py-2 text-sm font-semibold transition-colors">Produkty</a>
                 <a href="reference.html" class="text-slate-500 hover:text-industrial-accent px-3 py-2 text-sm font-semibold transition-colors">Reference</a>
                 <a href="kontakt.html" class="bg-industrial-blue hover:bg-industrial-accent text-white px-5 py-2 rounded-md text-sm font-semibold transition-colors shadow-sm">Kontakt</a>
             </nav>
+            <!-- Tlačítko pro mobilní menu s přidaným ID -->
             <div class="flex items-center md:hidden">
-                <button class="text-slate-500 hover:text-industrial-dark focus:outline-none">
+                <button id="mobile-menu-btn" class="text-slate-500 hover:text-industrial-dark focus:outline-none">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
+        </div>
+        
+        <!-- Rozbalovací mobilní menu (nově přidáno) -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 border-t border-slate-100 pt-2">
+            <a href="index.html" class="block text-slate-500 hover:text-industrial-accent px-3 py-2 font-semibold">Úvod</a>
+            <a href="sluzby.html" class="block text-slate-500 hover:text-industrial-accent px-3 py-2 font-semibold">Produkty</a>
+            <a href="reference.html" class="block text-slate-500 hover:text-industrial-accent px-3 py-2 font-semibold">Reference</a>
+            <a href="kontakt.html" class="block text-industrial-blue hover:text-industrial-accent px-3 py-2 font-semibold">Kontakt</a>
         </div>
     </div>
 </header>
